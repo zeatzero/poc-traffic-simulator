@@ -1,8 +1,8 @@
-package poc.trafficsimulator.view;
+package jef;
 
 import javax.swing.JFrame;
 
-public abstract class JFrameJEF extends JFrame {
+public abstract class AbstractJFrameJEF extends JFrame {
 	
 	protected void init(){
 		createComponents();

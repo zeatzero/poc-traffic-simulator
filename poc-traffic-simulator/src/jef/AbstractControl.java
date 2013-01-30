@@ -14,7 +14,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-public abstract class ControleAbstrato<CLASSE_VALOR extends DadoAbstrato> {
+public abstract class AbstractControl<CLASSE_VALOR extends AbstractData> {
 	protected HashMap<Object, CLASSE_VALOR> data = new HashMap<Object, CLASSE_VALOR>();
 	protected String nomeArquivoDados;
 	private String path = "data";
