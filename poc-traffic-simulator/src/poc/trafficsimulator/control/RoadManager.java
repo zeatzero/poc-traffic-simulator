@@ -1,4 +1,5 @@
 package poc.trafficsimulator.control;
+
 import java.util.HashMap;
 
 import poc.trafficsimulator.model.Car;
@@ -27,7 +28,7 @@ public class RoadManager {
 
 	public Car getCarro(Car carro, String endereco) {
 		Car outroCarro = carros.get(endereco);
-		if(outroCarro.equals(carro)){
+		if (outroCarro != null && outroCarro.equals(carro)) {
 			return null;
 		}
 		return outroCarro;
