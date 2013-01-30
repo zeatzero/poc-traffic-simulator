@@ -1,12 +1,13 @@
+package poc.trafficsimulator.model;
 import jef.DadoAbstrato;
 
-public class Endereco extends DadoAbstrato{
+public class Address extends DadoAbstrato{
 
 	private String endereco;
 	private float latitude;
 	private float longitude;
 	
-	public Endereco(String endereco, float latitude, float longitude) {
+	public Address(String endereco, float latitude, float longitude) {
 		super();
 		this.endereco = endereco;
 		this.latitude = latitude;

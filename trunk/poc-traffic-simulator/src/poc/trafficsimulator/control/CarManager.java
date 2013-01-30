@@ -1,18 +1,23 @@
+package poc.trafficsimulator.control;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarroManager{
+import poc.trafficsimulator.model.Car;
+import poc.trafficsimulator.view.PocMapView;
 
-	private List<Carro> carros;
+public class CarManager{
+
+	private List<Car> carros;
 	private boolean execute;
-	private ControleEndereco controleEnd;
+	private AddressControl controleEnd;
 
-	public CarroManager(ControleEndereco controle) {
-		carros = new ArrayList<Carro>();
+	public CarManager(AddressControl controle) {
+		carros = new ArrayList<Car>();
 		controleEnd = controle;
 	}
 
-	public void add(Carro carro) {
+	public void add(Car carro) {
 		synchronized (carros) {
 			carros.add(carro);
 		}
@@ -21,7 +26,7 @@ public class CarroManager{
 	public void andar() {
 		synchronized (carros) {
 			int count = 1;
-			for (Carro c : carros) {
+			for (Car c : carros) {
 //				System.out.println("Movimentando carro " + count);
 				c.andar();
 				GeoSample.addEnderecoMapa(controleEnd, c.getEnderecoAtual());
@@ -34,7 +39,7 @@ public class CarroManager{
 			public void run() {
 				execute = true;
 				synchronized (carros) {
-					for (Carro c : carros) {
+					for (Car c : carros) {
 						c.iniciar();
 						GeoSample.addEnderecoMapa(controleEnd,
 								c.getEnderecoAtual());
@@ -59,7 +64,7 @@ public class CarroManager{
 		execute = false;
 	}
 
-	public List<Carro> getCarros() {
+	public List<Car> getCarros() {
 		return carros;
 	}
 }

@@ -1,8 +1,11 @@
+package poc.trafficsimulator.control;
 import java.util.HashMap;
+
+import poc.trafficsimulator.model.Car;
 
 public class EstradaManager {
 
-	private HashMap<String, Carro> carros = new HashMap<String, Carro>();
+	private HashMap<String, Car> carros = new HashMap<String, Car>();
 
 	private static EstradaManager INSTANCE;
 
@@ -13,7 +16,7 @@ public class EstradaManager {
 		return INSTANCE;
 	}
 
-	public void move(String enderecoAnterior, Carro carro) {
+	public void move(String enderecoAnterior, Car carro) {
 		carros.put(enderecoAnterior, null);
 		carros.put(carro.getEnderecoAtual(), carro);
 	}
@@ -22,8 +25,8 @@ public class EstradaManager {
 		return carros.get(endereco) == null;
 	}
 
-	public Carro getCarro(Carro carro, String endereco) {
-		Carro outroCarro = carros.get(endereco);
+	public Car getCarro(Car carro, String endereco) {
+		Car outroCarro = carros.get(endereco);
 		if(outroCarro.equals(carro)){
 			return null;
 		}

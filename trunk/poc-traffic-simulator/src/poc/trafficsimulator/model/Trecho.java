@@ -1,3 +1,4 @@
+package poc.trafficsimulator.model;
 public class Trecho {
 	private String rua;
 	private int inicio;

@@ -1,16 +1,18 @@
+package poc.trafficsimulator.control;
 import jef.ControleAbstrato;
+import poc.trafficsimulator.model.Address;
 
-public class ControleEndereco extends ControleAbstrato<Endereco> {
+public class AddressControl extends ControleAbstrato<Address> {
 
-	public ControleEndereco() {
+	public AddressControl() {
 		super();
 		nomeArquivoDados = "enderecos.dat";
 		this.carregarDados();
 	}
 
 	@Override
-	public Endereco procurarPorParametros(Endereco objetoPesquisa) {
-		Endereco endereco = data.get(objetoPesquisa.getObjetoChave());
+	public Address procurarPorParametros(Address objetoPesquisa) {
+		Address endereco = data.get(objetoPesquisa.getObjetoChave());
 		if (endereco == null) {
 			try {
 				String end = objetoPesquisa.getEndereco();
@@ -24,7 +26,7 @@ public class ControleEndereco extends ControleAbstrato<Endereco> {
 	}
 
 	@Override
-	public String getMensagemDadoDuplicado(Endereco objeto) {
+	public String getMensagemDadoDuplicado(Address objeto) {
 		return null;
 	}
 

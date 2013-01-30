@@ -1,15 +1,16 @@
+package poc.trafficsimulator.model;
 import java.util.List;
 
-import javax.swing.text.StyledEditorKit.BoldAction;
+import poc.trafficsimulator.control.EstradaManager;
 
-public class Carro {
+public class Car {
 
 	private Percurso percurso;
 	private int trechoAtual;
 	private int numeroAtual;
 	private boolean fim = false;
 
-	public Carro(Percurso p) {
+	public Car(Percurso p) {
 		percurso = p;
 		trechoAtual = 0;
 		numeroAtual = 0;
