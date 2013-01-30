@@ -1,4 +1,4 @@
-package jef;
+package poc.trafficsimulator.view;
 
 import javax.swing.JFrame;
 

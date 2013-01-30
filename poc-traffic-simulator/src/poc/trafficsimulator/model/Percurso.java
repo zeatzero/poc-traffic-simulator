@@ -1,3 +1,4 @@
+package poc.trafficsimulator.model;
 import java.util.ArrayList;
 import java.util.List;
 

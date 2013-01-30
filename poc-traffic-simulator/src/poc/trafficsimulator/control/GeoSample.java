@@ -1,3 +1,4 @@
+package poc.trafficsimulator.control;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.IOException;
@@ -22,6 +23,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
+import poc.trafficsimulator.model.Address;
+
 public class GeoSample {
 
 	// URL prefix to the geocoder
@@ -32,7 +35,7 @@ public class GeoSample {
 
 	public static JLabel labelMap = new JLabel();
 
-	public static Endereco geocode(String end) throws Exception {
+	public static Address geocode(String end) throws Exception {
 		System.out.println("GEOCODE: " + end);
 		URL url = new URL(GEOCODER_REQUEST_PREFIX_FOR_XML + "?address="
 				+ URLEncoder.encode(end, "UTF-8") + "&sensor=false");
@@ -92,13 +95,13 @@ public class GeoSample {
 				longi = Float.parseFloat(node.getTextContent());
 			}
 		}
-		return new Endereco(end, latit, longi);
+		return new Address(end, latit, longi);
 		// System.out.println("lat/lng=" + latit + "," + longi);
 	}
 
-	public static void addEnderecoMapa(ControleEndereco controle,
+	public static void addEnderecoMapa(AddressControl controle,
 			String endereco) {
-		Endereco end = controle.procurarPorParametros(new Endereco(endereco, 0,
+		Address end = controle.procurarPorParametros(new Address(endereco, 0,
 				0));
 		lats.add(end.getLatitude());
 		longits.add(end.getLongitude());

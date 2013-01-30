@@ -1,3 +1,5 @@
+package poc.trafficsimulator.view;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -8,6 +10,13 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+
+import poc.trafficsimulator.control.AddressControl;
+import poc.trafficsimulator.control.CarManager;
+import poc.trafficsimulator.control.GeoSample;
+import poc.trafficsimulator.model.Car;
+import poc.trafficsimulator.model.Percurso;
+import poc.trafficsimulator.model.Trecho;
 
 public class PocMapView extends JFrameJEF {
 	private javax.swing.JButton btAddPercurso;
@@ -24,8 +33,8 @@ public class PocMapView extends JFrameJEF {
 	private javax.swing.JTextField txtInicio;
 	private javax.swing.JTextField txtRua;
 	private List<Percurso> percursos;
-	private ControleEndereco controleEnd;
-	private CarroManager carroManager;
+	private AddressControl controleEnd;
+	private CarManager carroManager;
 
 	public PocMapView() {
 		super();
@@ -34,8 +43,8 @@ public class PocMapView extends JFrameJEF {
 		setSize(1200, 700);
 		setLocationRelativeTo(null);
 		percursos = new ArrayList<Percurso>();
-		controleEnd = new ControleEndereco();
-		carroManager = new CarroManager(controleEnd);
+		controleEnd = new AddressControl();
+		carroManager = new CarManager(controleEnd);
 	}
 
 	@Override
@@ -391,7 +400,7 @@ public class PocMapView extends JFrameJEF {
 			return;
 		}
 		Percurso p = percursos.get(percursos.size() - 1);
-		carroManager.add(new Carro(p));
+		carroManager.add(new Car(p));
 		JOptionPane.showMessageDialog(null, "Adicionado "
 				+ carroManager.getCarros().size() + "º percurso!");
 		Percurso novo = new Percurso();
