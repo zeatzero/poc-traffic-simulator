@@ -26,7 +26,7 @@ import org.xml.sax.InputSource;
 
 import poc.trafficsimulator.model.Address;
 
-public class GeoSample {
+public class Geocoder {
 
 	// URL prefix to the geocoder
 	private static final String GEOCODER_REQUEST_PREFIX_FOR_XML = "http://maps.google.com/maps/api/geocode/xml";

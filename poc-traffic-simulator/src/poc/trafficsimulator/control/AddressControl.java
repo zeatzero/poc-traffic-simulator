@@ -16,7 +16,7 @@ public class AddressControl extends AbstractControl<Address> {
 		if (endereco == null) {
 			try {
 				String end = objetoPesquisa.getEndereco();
-				endereco = GeoSample.geocode(end);
+				endereco = Geocoder.geocode(end);
 				adicionar(endereco);
 			} catch (Exception e) {
 				e.printStackTrace();

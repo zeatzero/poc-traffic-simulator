@@ -29,7 +29,7 @@ public class CarManager{
 			for (Car c : carros) {
 //				System.out.println("Movimentando carro " + count);
 				c.andar();
-				GeoSample.addEnderecoMapa(controleEnd, c.getEnderecoAtual());
+				Geocoder.addEnderecoMapa(controleEnd, c.getEnderecoAtual());
 			}
 		}
 	}
@@ -41,13 +41,13 @@ public class CarManager{
 				synchronized (carros) {
 					for (Car c : carros) {
 						c.iniciar();
-						GeoSample.addEnderecoMapa(controleEnd,
+						Geocoder.addEnderecoMapa(controleEnd,
 								c.getEnderecoAtual());
 					}
 				}
 				while (execute) {
 
-					GeoSample.clear();
+					Geocoder.clear();
 					andar();
 					try {
 						PocMapView.refreshMap();

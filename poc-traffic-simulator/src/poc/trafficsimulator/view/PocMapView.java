@@ -15,7 +15,7 @@ import jef.AbstractJFrameJEF;
 
 import poc.trafficsimulator.control.AddressControl;
 import poc.trafficsimulator.control.CarManager;
-import poc.trafficsimulator.control.GeoSample;
+import poc.trafficsimulator.control.Geocoder;
 import poc.trafficsimulator.model.Car;
 import poc.trafficsimulator.model.Percurso;
 import poc.trafficsimulator.model.Trecho;
@@ -407,11 +407,11 @@ public class PocMapView extends AbstractJFrameJEF {
 				+ carroManager.getCarros().size() + "º percurso!");
 		Percurso novo = new Percurso();
 		percursos.add(novo);
-		GeoSample.clear();
+		Geocoder.clear();
 	}
 
 	private void addTrecho() throws Exception {
-		GeoSample.clear();
+		Geocoder.clear();
 		String rua = txtRua.getText();
 		String inicio = txtInicio.getText();
 		String fim = txtFim.getText();
@@ -431,7 +431,7 @@ public class PocMapView extends AbstractJFrameJEF {
 		jLabel1.setIcon(null);
 		jLabel1.setText("Por favor aguarde,\ncarregando os endereços do mapa...");
 		for (String end : enderecos) {
-			GeoSample.addEnderecoMapa(controleEnd, end);
+			Geocoder.addEnderecoMapa(controleEnd, end);
 		}
 		jLabel1.setText("");
 		if (percursos.size() == 0) {
@@ -443,7 +443,7 @@ public class PocMapView extends AbstractJFrameJEF {
 	}
 
 	public static void refreshMap() throws Exception {
-		jLabel1.setIcon(new ImageIcon(GeoSample.createImageMap()));
+		jLabel1.setIcon(new ImageIcon(Geocoder.createImageMap()));
 	}
 
 	public static void main(String args[]) {
