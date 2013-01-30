@@ -1,8 +1,8 @@
 package poc.trafficsimulator.control;
-import jef.ControleAbstrato;
+import jef.AbstractControl;
 import poc.trafficsimulator.model.Address;
 
-public class AddressControl extends ControleAbstrato<Address> {
+public class AddressControl extends AbstractControl<Address> {
 
 	public AddressControl() {
 		super();

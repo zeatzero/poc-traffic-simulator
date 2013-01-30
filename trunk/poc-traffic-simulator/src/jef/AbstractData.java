@@ -2,15 +2,15 @@ package jef;
 
 import java.io.Serializable;
 
-public abstract class DadoAbstrato implements Serializable {
+public abstract class AbstractData implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int codigo;
 
-	public DadoAbstrato() {
+	public AbstractData() {
 	}
 
-	public DadoAbstrato(int codigo) {
+	public AbstractData(int codigo) {
 		super();
 		this.codigo = codigo;
 	}

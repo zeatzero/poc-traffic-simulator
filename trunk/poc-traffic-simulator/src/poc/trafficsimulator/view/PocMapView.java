@@ -11,6 +11,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
+import jef.AbstractJFrameJEF;
+
 import poc.trafficsimulator.control.AddressControl;
 import poc.trafficsimulator.control.CarManager;
 import poc.trafficsimulator.control.GeoSample;
@@ -18,7 +20,7 @@ import poc.trafficsimulator.model.Car;
 import poc.trafficsimulator.model.Percurso;
 import poc.trafficsimulator.model.Trecho;
 
-public class PocMapView extends JFrameJEF {
+public class PocMapView extends AbstractJFrameJEF {
 	private javax.swing.JButton btAddPercurso;
 	private javax.swing.JButton btAddTrecho;
 	private javax.swing.JButton btIniciar;

@@ -3,15 +3,15 @@ import java.util.HashMap;
 
 import poc.trafficsimulator.model.Car;
 
-public class EstradaManager {
+public class RoadManager {
 
 	private HashMap<String, Car> carros = new HashMap<String, Car>();
 
-	private static EstradaManager INSTANCE;
+	private static RoadManager INSTANCE;
 
-	public static EstradaManager getInstance() {
+	public static RoadManager getInstance() {
 		if (INSTANCE == null) {
-			INSTANCE = new EstradaManager();
+			INSTANCE = new RoadManager();
 		}
 		return INSTANCE;
 	}

@@ -1,4 +1,5 @@
 package poc.trafficsimulator.control;
+
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.IOException;
@@ -40,47 +41,35 @@ public class GeoSample {
 		URL url = new URL(GEOCODER_REQUEST_PREFIX_FOR_XML + "?address="
 				+ URLEncoder.encode(end, "UTF-8") + "&sensor=false");
 
-		// prepare an HTTP connection to the geocoder
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
 		Document geocoderResultDocument = null;
 		try {
-			// open the connection and get results as InputSource.
 			conn.connect();
-			InputSource geocoderResultInputSource = new InputSource(
-					conn.getInputStream());
+			InputSource geocoderResultInputSource = new InputSource(conn
+					.getInputStream());
 
-			// read result and parse into XML Document
+			// read the result and parse into XML Document
 			geocoderResultDocument = DocumentBuilderFactory.newInstance()
 					.newDocumentBuilder().parse(geocoderResultInputSource);
 		} finally {
 			conn.disconnect();
 		}
 
-		// prepare XPath
 		XPath xpath = XPathFactory.newInstance().newXPath();
 
-		// extract the result
 		NodeList resultNodeList = null;
 
-		// a) obtain the formatted_address field for every result
 		resultNodeList = (NodeList) xpath.evaluate(
 				"/GeocodeResponse/result/formatted_address",
 				geocoderResultDocument, XPathConstants.NODESET);
-		// for (int i = 0; i < resultNodeList.getLength(); ++i) {
-		// System.out.println(resultNodeList.item(i).getTextContent());
-		// }
 
-		// b) extract the locality for the first result
+		// extract the locality for the first result
 		resultNodeList = (NodeList) xpath
 				.evaluate(
 						"/GeocodeResponse/result[1]/address_component[type/text()='locality']/long_name",
 						geocoderResultDocument, XPathConstants.NODESET);
-		// for (int i = 0; i < resultNodeList.getLength(); ++i) {
-		// System.out.println(resultNodeList.item(i).getTextContent());
-		// }
 
-		// c) extract the coordinates of the first result
+		// extract the coordinates of the first result
 		resultNodeList = (NodeList) xpath.evaluate(
 				"/GeocodeResponse/result[1]/geometry/location/*",
 				geocoderResultDocument, XPathConstants.NODESET);
@@ -96,13 +85,11 @@ public class GeoSample {
 			}
 		}
 		return new Address(end, latit, longi);
-		// System.out.println("lat/lng=" + latit + "," + longi);
 	}
 
-	public static void addEnderecoMapa(AddressControl controle,
-			String endereco) {
-		Address end = controle.procurarPorParametros(new Address(endereco, 0,
-				0));
+	public static void addEnderecoMapa(AddressControl controle, String endereco) {
+		Address end = controle
+				.procurarPorParametros(new Address(endereco, 0, 0));
 		lats.add(end.getLatitude());
 		longits.add(end.getLongitude());
 	}

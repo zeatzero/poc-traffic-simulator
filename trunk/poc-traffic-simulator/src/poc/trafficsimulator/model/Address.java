@@ -1,7 +1,7 @@
 package poc.trafficsimulator.model;
-import jef.DadoAbstrato;
+import jef.AbstractData;
 
-public class Address extends DadoAbstrato{
+public class Address extends AbstractData{
 
 	private String endereco;
 	private float latitude;

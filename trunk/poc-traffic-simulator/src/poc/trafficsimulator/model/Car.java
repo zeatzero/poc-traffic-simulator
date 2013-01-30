@@ -1,7 +1,7 @@
 package poc.trafficsimulator.model;
 import java.util.List;
 
-import poc.trafficsimulator.control.EstradaManager;
+import poc.trafficsimulator.control.RoadManager;
 
 public class Car {
 
@@ -28,7 +28,7 @@ public class Car {
 		}
 		Trecho trecho = trechos.get(trechoAtual);
 		numeroAtual = trecho.getInicio();
-		EstradaManager.getInstance().move(null, this);
+		RoadManager.getInstance().move(null, this);
 	}
 
 	public void andar() {
@@ -57,17 +57,17 @@ public class Car {
 				numeroAtual = trechos.get(trechoAtual).getInicio();
 			}
 		}
-		boolean directionEquals = EstradaManager.getInstance().getCarro(this,
+		boolean directionEquals = RoadManager.getInstance().getCarro(this,
 				endereoTemp) != null
-				&& EstradaManager.getInstance().getCarro(this, endereoTemp)
+				&& RoadManager.getInstance().getCarro(this, endereoTemp)
 						.gettrechoAtual().isOrdemCrescente() == gettrechoAtual()
 						.isOrdemCrescente();
-		if (!EstradaManager.getInstance().isEmpty(endereoTemp)
+		if (!RoadManager.getInstance().isEmpty(endereoTemp)
 				&& directionEquals) {
 			numeroAtual = numeroTemp;
 			trechoAtual = trechoTemp;
 		} else {
-			EstradaManager.getInstance().move(endereoTemp, this);
+			RoadManager.getInstance().move(endereoTemp, this);
 		}
 	}
 
