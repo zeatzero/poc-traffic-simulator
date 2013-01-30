@@ -1,6 +1,8 @@
 package poc.trafficsimulator.model;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import poc.trafficsimulator.control.RoadManager;
 
 public class Car {
@@ -62,10 +64,11 @@ public class Car {
 				&& RoadManager.getInstance().getCarro(this, endereoTemp)
 						.gettrechoAtual().isOrdemCrescente() == gettrechoAtual()
 						.isOrdemCrescente();
-		if (!RoadManager.getInstance().isEmpty(endereoTemp)
+		if (!RoadManager.getInstance().isEmpty(getEnderecoAtual())
 				&& directionEquals) {
 			numeroAtual = numeroTemp;
 			trechoAtual = trechoTemp;
+			JOptionPane.showMessageDialog(null, "parado em "+getEnderecoAtual());
 		} else {
 			RoadManager.getInstance().move(endereoTemp, this);
 		}
